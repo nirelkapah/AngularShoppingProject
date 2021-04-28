@@ -1,0 +1,100 @@
+
+<!-- ==============Registration Part 1 ===============-->
+
+<div class="registerContainer" *ngIf="this.registationPart1IsOn">
+
+    <form #registerForm1="ngForm"  [formGroup]="registerFormPart1" (submit)="onClickConfirm()">
+
+    <mat-form-field>
+        <mat-label>id:</mat-label>
+        <input matInput type="text" name="id" minlength="9" maxlength="9" [formControl]="userId" />
+    </mat-form-field>
+
+    <span class="inputErrorMessage" *ngIf="userId.errors?.required && userId.touched">Please Fill In User Id</span>
+    <span class="inputErrorMessage" *ngIf="userId.invalid && userId.touched && userId.dirty">Id Must Be 9 Digits Long</span>       
+    <span class="inputErrorMessage" *ngIf="userId.errors?.pattern && userId.touched">Id Must Include Numbers Only</span>
+
+    <mat-form-field>
+        <mat-label>Email (username):</mat-label>
+        <input matInput type="email" name="username" maxlength="45" email="true" [formControl]="username"/>
+    </mat-form-field>
+
+    <span class="inputErrorMessage" *ngIf="username.errors?.required && username.touched">Please Fill In Email</span>
+    <span class="inputErrorMessage" *ngIf="username.invalid && username.touched && username.dirty">Please Write A Valid Email</span>
+
+
+    <mat-form-field>
+        <mat-label>Password:</mat-label>
+        <input matInput type="password" name="password" minlength="6" maxlength="16" [formControl]="password"/>
+    </mat-form-field>
+    <span class="inputErrorMessage" *ngIf="password.invalid && password.touched && password.dirty">Password Must Be Atleast 6 Characters Long</span>       
+    <span class="inputErrorMessage" *ngIf="password.errors?.required && password.touched">Please Fill In Password</span>
+
+
+    <mat-form-field>
+        <mat-label>Confirm Password:</mat-label>
+        <input matInput type="password" ngValidateEqual="password" name="confirmPassword" minlength="6" maxlength="16" [formControl]="confirmPassword"/>
+    </mat-form-field>
+
+    <span class="inputErrorMessage" *ngIf="confirmPassword.errors?.required && confirmPassword.touched">Please Fill In Confirm Password</span>
+    <span class="inputErrorMessage"  *ngIf="confirmPassword.hasError('notEqual') && password.valid && confirmPassword.touched">Password & Confirm Password does not match</span>
+    
+    <div>
+
+        <button mat-button class="submitButton" type="button" (click)="this.onClickHome()" >Home</button>
+        <button mat-button class="nextButton" (click)="this.onClickNext()" type="button" [disabled]="registerForm1.form.invalid">Next</button>
+
+    </div>
+
+    </form>
+
+</div>
+
+<!-- =======================Registration Part 2 =======================-->
+
+
+<div class="registerContainer" *ngIf="!this.registationPart1IsOn">
+
+    <form #registerForm2="ngForm"  [formGroup]="registerFormPart2" (submit)="onClickConfirm()">
+
+    <mat-form-field appearance="fill">
+        <mat-label>City:</mat-label>
+        <mat-select name="city" id="city" [formControl]="city">
+            <mat-option *ngFor="let city of citiesList" [value]="city">{{city}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <span class="inputErrorMessage" *ngIf="city.errors?.required && city.touched">Please Fill In City</span>
+
+    <mat-form-field>
+        <mat-label>Street:</mat-label>
+        <input matInput type="text" name="street" maxlength="45" [formControl]="street"/>
+    </mat-form-field>
+
+    <span class="inputErrorMessage" *ngIf="street.errors?.required && street.touched">Please Fill In Street</span>
+
+    <mat-form-field>
+        <mat-label>First Name:</mat-label>
+        <input matInput type="text" name="firstName" maxlength="45" [formControl]="firstName"/>
+    </mat-form-field>
+    <span class="inputErrorMessage" *ngIf="firstName.errors?.required && firstName.touched">Please Fill In First Name</span>
+    <span class="inputErrorMessage" *ngIf="firstName.errors?.pattern"> Please Use Only Letters For First Name</span>
+
+
+    <mat-form-field>
+        <mat-label>Last Name:</mat-label>
+        <input matInput type="text" name="lastName" maxlength="45" [formControl]="lastName"/>
+    </mat-form-field>
+
+    <span class="inputErrorMessage" *ngIf="lastName.errors?.required && lastName.touched">Please Fill In Last Name</span>
+    <span class="inputErrorMessage" *ngIf="lastName.errors?.pattern"> Please Use Only Letters For Last Name</span>
+
+    <div>
+
+        <button mat-button class="submitButton" type="button" (click)="this.onClickBack()" >Back</button>
+        <button mat-button class="submitButton" type="submit" [disabled]="registerForm2.form.invalid">submit</button>
+
+    </div>
+
+    </form>
+
+</div>

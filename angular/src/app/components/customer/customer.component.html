@@ -1,0 +1,110 @@
+
+
+
+<section>
+
+    
+
+    <!-- ===================Customer Header================== -->
+    <header>
+
+        <!-------Search Product------ -->
+        <div id="headerAside">
+            <mat-form-field (keyup.enter)="this.onClickSearch()">
+                <mat-label>Search Product:</mat-label>
+                <input matInput type="text" name="nameFilter" [(ngModel)]="searchKeyword"/>
+            </mat-form-field>
+            <button mat-raised-button type="submit" (click)="this.onClickSearch()" >Search</button>
+        </div>
+
+        <!-------Search Product------ -->
+        <div id="headerMain">
+            <button mat-raised-button type="button" *ngFor="let category of productsService.productCategories" class="categoryCard" (click)="this.onClickCategory(category)">
+                <span>{{category.name}} </span>
+            </button>
+            <button mat-raised-button type="button" class="categoryCard" (click)="this.getAllProducts()">All Products</button>
+
+            <!-------Toggle Cart Button------ -->
+            <button type="button" mat-button (click)="this.onClickToggleCart()" id="headerSideBarButtonDiv" *ngIf="!this.isCartOpen">
+                Open Cart
+                <span class="material-icons">
+                    shopping_cart
+                </span>
+            </button>
+            
+        </div>
+
+
+       
+
+    </header>
+
+
+    <!-- =================Cutomer Main================== -->
+
+    <main>     
+        
+           
+        <mat-drawer-container class="container" autosize>
+
+
+                    <!-- ======================Shop Aside - Cart =============== -->
+
+
+                <mat-drawer #drawer class="sidenav" mode="side" [(opened)]="isCartOpen">
+
+                    <!-- -----Close / Delete Cart Button----- -->
+
+                    <button class="cartCloseButton" *ngIf="cartsService.cart.length>0" (click)="this.onClickDeleteCart()" mat-raised-button >
+                        <span>Delete Cart</span>
+                        <span type="button" class="material-icons" >
+                            delete_forever
+                        </span>
+                    </button>
+
+                    <button class="cartCloseButton" (click)="this.onClickToggleCart()" mat-raised-button >
+                        <span>Minimize</span>
+                        <span type="button" class="material-icons" >
+                            close_fullscreen
+                        </span>
+                    </button>
+
+                    <!-- ================Shop Main -  Products================= -->
+
+                    <div *ngIf="cartsService.cart.length==0">
+                        <h1 class="emptyCartText"> Your Cart Is Empty</h1>
+                        <h2 class="emptyCartSubText">Please Add Products To Cart</h2>
+                        <span class="material-icons addCartSymbol">
+                            add_shopping_cart
+                        </span>
+
+                    </div>
+
+                    <app-cart>
+
+                    </app-cart>
+
+                </mat-drawer>
+          
+                <!-- -----Products Main Section----- -->
+
+                <div class="sidenav-content" class="mainDiv">
+
+                    <div role="button" *ngFor="let product of productsService.productsArray"  class="cardDiv grow" (click)="onClickProduct(product)">
+
+                        <h3>{{product.name}}</h3>
+                        <h3>{{product.price}}$</h3>
+                        <img class="img-responsive cardImg" src="http://localhost:3001/{{product.imageURL}}">
+
+                    </div>
+
+                </div>
+
+          </mat-drawer-container>
+
+          
+
+    </main>
+
+</section>
+

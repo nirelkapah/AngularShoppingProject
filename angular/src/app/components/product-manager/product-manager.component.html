@@ -1,0 +1,72 @@
+<button mat-raised-button (click)="onClickAddNewProduct()" >New Product <span class="material-icons">
+    add
+    </span></button>
+
+    <div class="productContainer" >
+
+
+        <form #productFormNg="ngForm" [formGroup]="productForm" (submit)="onClickSubmitProduct()">
+
+            <div class="title">
+                <h1 *ngIf="productId" >Edit Product</h1>
+                <h1 *ngIf="productId == undefined" >Add Product</h1>
+
+            </div>
+            
+            <mat-form-field>
+                <mat-label>Name:</mat-label>
+                <input matInput type="text" name="name" maxlength="45" [formControl]="name"/>
+            </mat-form-field>
+
+            <span class="inputErrorMessage" *ngIf="name.errors?.required && name.touched">Please Fill In Name</span>
+
+            <mat-form-field>
+                <mat-label>Category:</mat-label>
+                <mat-select name="category" id="category" [formControl]="category">
+                    <mat-option *ngFor="let category of productsService.productCategories" [value]="category.id">{{category.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <span class="inputErrorMessage" *ngIf="category.errors?.required && category.touched">Please Fill In Category</span>
+
+            <mat-form-field>
+
+                <mat-label>Price:</mat-label>
+                <input matInput name="price" maxlength="45" [formControl]="price"/>
+            </mat-form-field>
+
+            <span class="inputErrorMessage" *ngIf="price.errors?.required && price.touched">Please Fill In Price</span>
+            <span class="inputErrorMessage" *ngIf="price.errors?.pattern">Price Must Include Numbers (Positive) Only</span>
+
+
+            <label for="file" >
+                Image:
+            </label>
+            <br>
+            <input id="selectedFile" #fileInput type="file" class="custom-file-input" name="imageURL" style="display: none" (change)="onChangeImage($event)">
+                   
+            <div class="box-1" (click)="onClickTriggerUploadFileButton()">
+                <div class="btn btn-one">
+                  <span>Upload New Image</span>
+                  <span class="material-icons uploadSymbol">
+                    upload
+                    </span>
+                </div>
+              </div>
+
+            <span class="inputErrorMessage" *ngIf="imageURL.errors?.required && imageURL.touched">Please Insert Image</span>
+
+            <img class="img-responsive previewImage" src="{{imagePreview}}">
+
+
+
+
+            <div>
+
+                <button mat-button class="submitButton submitButton" type="button" [disabled]="productFormNg.form.invalid" (click)="onClickSubmitProduct()">Submit</button>
+
+            </div>
+
+        </form>
+
+    </div>

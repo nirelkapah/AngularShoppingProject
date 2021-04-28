@@ -1,0 +1,13 @@
+<section>
+
+    <aside>
+        <img id="logo" role="button" (click)="this.onClickLogo()" src="assets/images/header/logo3.png">
+    </aside>
+
+    <main>
+        <span role="button" *ngIf="this.usersService.firstName" (click)="onClickSignOut()"><u>Sign Out</u></span>
+        <span role="button" *ngIf="!this.usersService.firstName" (click)="onClickTransferToLogin()">Log In</span>
+        <span *ngIf="this.usersService.firstName">Hello {{this.usersService.firstName}}!</span>
+    </main>
+
+</section>

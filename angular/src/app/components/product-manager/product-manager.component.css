@@ -1,0 +1,329 @@
+
+section {
+    font-family: 'Yusei Magic', sans-serif;
+    min-height: 100%;
+    background-color: lightgray;
+    text-align: center;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr); /* 12 columns */
+    grid-template-rows: 106px auto; /* 3 rows */
+    height: 100%;
+}
+
+section > * {
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+
+header {
+    grid-column: span 12;
+    justify-content: bottom;
+    /* background-color: white; */
+    text-align: center;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr); /* 12 columns */
+    grid-template-rows: 100%  ; 
+}
+
+aside {
+    grid-column: span 3;
+} 
+
+main {
+    grid-column: span 9;   
+}
+
+/* =================HEADER==================== */
+
+
+#headerAside {
+    grid-column: span 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#headerMain {
+    grid-column: span 10; 
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-left: 10px;
+
+}
+
+#headerSideBarButtonDiv{
+    position: absolute;
+    top: 178px;
+}
+
+
+/* =================ASIDE==================== */
+
+
+#menu{
+    margin-top: 20px;
+    padding-bottom: 80px;
+
+}
+
+.menuRow{
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: lightgray;
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    padding: 5px;
+    
+}
+
+.img{
+    display: block;
+    height: 90px;
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+h3{
+    margin: 3px;
+    padding: 0px;
+}
+
+span{
+    font-size: 15px;
+    font-weight: lighter;
+}
+
+
+#orderSumContainer{
+
+    position: absolute;
+    bottom: 50px;
+    background-color: white;
+    width: 200px;
+    border: black solid 1px;
+    border-radius: 5px;
+}
+
+/* =================MAIN==================== */
+
+
+
+.productContainer {
+    justify-content: center;
+    align-items: center;   
+    width: 100%; 
+    
+}
+
+.productContainer > form{
+
+    margin: auto;
+    padding-top: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    font-size: 20px;
+    width: 250px;
+    align-items: center;    
+}
+
+.productContainer > form > img{
+
+    width: 100%; 
+
+}
+
+.productContainer > form > img > mat-form-field{
+
+    width: 100%; 
+    border-radius: 10px;
+
+}
+
+.uploadImageButton{
+    width: 100%;
+}
+
+
+.productContainer > p{
+    
+    /* margin-top: 10px; */
+    font-size: 15px;
+    font-family: 'Yusei Magic', sans-serif;
+
+}
+
+
+mat-form-field{
+    padding: 5px;
+}
+
+
+.submitButton{
+    border: white solid 1px;
+    border-radius: 10px;
+    font-size: 20px;
+    background-image: url("../../../assets/images/header/woodBackground.jpg");
+    background-size: 100% 100%;
+}
+
+.inputErrorMessage{
+    font-size: 15px;
+    color: red;
+}
+
+.title{
+    width: 100%;
+    border-radius: 5px;
+    border: white 1px solid;
+}
+
+.example-custom-date-class {
+    background: orange;
+    border-radius: 100%;
+  }
+
+  ::ng-deep.occuppied-date {
+    background-color: red;
+    border-radius: 100%;
+
+ }
+
+ .submitButton{
+     margin-top: 5px;
+ }
+
+ .previewImage{
+     border-radius: 10px;
+     margin-top: 10px;
+ }
+
+ .custom-file-input::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+  .custom-file-input::before {
+    content: 'Select some files';
+    display: inline-block;
+    /* background: linear-gradient(top, #f9f9f9, #e3e3e3); */
+    border: 1px solid #999;
+    border-radius: 3px;
+    padding: 5px 8px;
+    outline: none;
+    white-space: nowrap;
+    cursor: pointer;
+    text-shadow: 1px 1px #fff;
+    font-weight: 700;
+    font-size: 10pt;
+  }
+  .custom-file-input:hover::before {
+    border-color: black;
+  }
+  .custom-file-input:active::before {
+    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+  }
+ 
+
+
+  
+
+
+
+
+
+
+
+
+
+div[class*=box] {
+    height: 33.33%;
+    width: 100%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+
+
+  }
+  
+  .box-1 { background-color: darkolivegreen; }
+
+  
+  .btn {
+    line-height: 50px;
+    height: 50px;
+    text-align: center;
+    width: 250px;
+    cursor: pointer;
+    vertical-align: middle;
+    border-radius: 10px;
+
+  }
+  
+  /* 
+  ========================
+        BUTTON ONE
+  ========================
+  */
+  .btn-one {
+    color: white;
+    transition: all 0.3s;
+    position: relative;
+
+  }
+  .btn-one span {
+    transition: all 0.3s;
+  }
+  .btn-one::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.3s;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-top-color: rgba(255,255,255,0.5);
+    border-bottom-color: rgba(255,255,255,0.5);
+    transform: scale(0.1, 1);
+    vertical-align: middle;
+
+  }
+  .btn-one:hover span {
+    letter-spacing: 2px;
+  }
+  .btn-one:hover::before {
+    opacity: 1; 
+    transform: scale(1, 1); 
+  }
+  .btn-one::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: all 0.3s;
+    background-color: rgba(255,255,255,0.1);
+  }
+  .btn-one:hover::after {
+    opacity: 0; 
+    transform: scale(0.1, 1);
+  }
+
+  .uploadSymbol{
+      vertical-align: middle;
+  }
+  
+  

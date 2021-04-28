@@ -1,0 +1,318 @@
+
+/* =============Header=========== */
+
+form{
+    column-span: all;
+
+}
+
+#logo{    
+    width: 40%;
+    height: auto;
+}
+
+
+section {
+    background-color: rgb(245, 245, 245);
+    text-align: center;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr); /* 12 columns */
+    grid-template-rows: 1fr 2fr 0.5fr 1.2fr 2.5fr; /* 4 rows */
+}
+
+/* =============Screen Size Responsive=========== */
+
+
+@media only screen and (min-width: 1500px) and (max-width: 1700px)  {
+
+    section {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr); /* 12 columns */
+        grid-template-rows: 1fr 2fr 0.3fr 0.7fr 1.5fr; /* 4 rows */
+    }
+   
+    }
+
+@media only screen and (min-width: 1350px) and (max-width: 1500px)  {
+
+    section {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr); /* 12 columns */
+        grid-template-rows: 1fr 2fr 0.3fr 0.6fr 1.3fr; /* 4 rows */
+    }
+    
+    }
+
+@media only screen and (min-width: 0) and (max-width: 1350px)  {
+
+    section {
+        display: flex;
+        flex-direction: column;
+        grid-template-columns: repeat(12, 1fr); /* 12 columns */
+        grid-template-rows: 1fr 2fr 0.3fr 0.6fr 1.3fr; /* 4 rows */
+    }
+
+    aside{
+        justify-content: center;
+    }
+
+    header, footer {
+        height: 200px;
+
+    }
+
+    #footer1{
+        height: auto;
+    }
+
+    #footer2{
+        display: none;
+    }
+
+    #footer3{
+        display: none;
+    }
+    
+    
+}
+
+/* =============Common=========== */
+
+
+section > * {
+    border: 8px solid transparent;
+
+}
+
+header, footer {
+    grid-column: span 12;
+    
+}
+
+header{
+    background-image: url("../../../assets/images/login/loginImage2.jpg");
+    background-repeat: no-repeat;
+    /* -moz-background-size: cover;
+    -o-background-size: cover; */
+    background-size: cover; 
+
+}
+
+aside {
+    grid-column: span 4;
+}
+
+main {
+    grid-column: span 8;
+
+}
+
+main>h1{
+    font-size: 40px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    font-family: 'Yusei Magic', sans-serif;
+}
+
+main>h3{
+    margin-bottom: 5px;
+    margin-top: 5px;
+    font-family: 'Yusei Magic', sans-serif;
+}
+
+footer >h1{
+    font-family: 'Yusei Magic', sans-serif;
+}
+
+/* =============Why Us=========== */
+
+
+#whyUs{
+    
+    display: flex;
+    flex-wrap: wrap;
+    background-color: transparent;
+    justify-content: center;
+}
+
+#whyUs>div{
+    margin: 10px;
+    border-width: 2px;
+    width: 350px;
+    height: 150px;
+    border-color: transparent;
+    border-style: solid;
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 2px 3px 0 #000000cc;   
+    border-radius: 5px;
+    position: relative;
+    z-index: 1;
+    /* background: inherit; */
+    overflow: hidden;
+    backdrop-filter: blur(5px);
+    
+}
+
+.whyUsTitles{
+    background-color: rgb(214, 214, 214);
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    font-size: 30px;
+    width: 100%;
+    height: 100%;
+
+}
+
+.whyUsTitles > p{
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+}
+
+#whyUsTitle1{
+    background-image: url("../../../assets/images/login/quality.png");
+    background-size: cover;
+
+}
+
+#whyUsTitle2{
+    background-image: url("../../../assets/images/login/price");
+    background-size: cover;
+
+}
+
+
+#whyUsTitle3{
+    background-image: url("../../../assets/images/login/flexibility.png");
+    background-size: cover;
+
+}
+
+
+#whyUsTitle4{
+    background-image: url("../../../assets/images/login/passion.png");
+    background-size: cover;
+
+}
+
+
+#whyUsTitle5{
+    background-image: url("../../../assets/images/login/integrity.png");
+    background-size: cover;
+
+}
+
+
+#whyUsTitle6{
+    background-image: url("../../../assets/images/login/teamWork.png");
+    background-size: cover;
+
+}
+
+.whyUsInfo{
+    justify-content: left;
+    background-image: url("../../../assets/images/header/woodBackground.jpg");
+    background-size: 100% 100%;
+    text-align: left;
+    font-size: 15px;
+    font-weight: lighter;
+
+    height: 100%;
+}
+
+.whyUsInfo >h3 {
+    padding: 0;
+    margin: 1px;
+    font-family: 'Yusei Magic', sans-serif;
+
+}
+
+/* =============Footer=========== */
+
+
+#footer1{
+    color: gray;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    background-repeat: no-repeat;
+    background-size: 100%; 
+}
+
+#footer2{
+
+    background-image: url("../../../assets/images/login/loginFooter5");
+    background-repeat: no-repeat;
+    background-size: 100%; 
+}
+
+
+#footer3{
+    
+    background-image: url("../../../assets/images/login/loginFooter2.png");
+    background-repeat: no-repeat;
+    background-size: 100%; 
+}
+
+
+
+/* =================Responsive Definitions==================== */
+
+/* @media only screen and (min-width: 630px) and (max-width: 850px)  {
+
+   #whyUs > div{
+       width: 200px;
+   }
+
+} */
+
+
+
+
+@media only screen and (min-width: 0px) and (max-width: 630px)  {
+
+    #whyUs > div{
+        width: 40%;
+    }
+
+    .whyUsTitles{
+        font-size: 20px;
+    }  
+        
+    .whyUsInfo{
+        justify-content: left;
+        background-image: url("../../../assets/images/header/woodBackground.jpg");
+        background-size: 100% 100%;
+        text-align: left;
+        font-size: 12px;
+        font-weight: lighter;
+    
+        height: 100%;
+    }
+    
+    .whyUsInfo >h3 {
+        padding: 0;
+        margin: 1px;
+        font-family: 'Yusei Magic', sans-serif;
+    
+    }
+       
+}
+
+
+
+
+
+
+
+
+
+
+
+

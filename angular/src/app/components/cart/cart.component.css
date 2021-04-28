@@ -1,0 +1,63 @@
+
+#menu{
+    margin-top: 20px;
+    padding-bottom: 80px;
+
+}
+
+.menuRow{
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: lightgray;
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    padding: 5px;
+    
+}
+
+.img{
+    display: block;
+    height: 90px;
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+h3{
+    margin: 3px;
+    padding: 0px;
+}
+
+span{
+    font-size: 15px;
+    font-weight: lighter;
+}
+
+.trash{
+    font-size: 25px;
+    position: relative;
+}
+
+#orderSumContainer{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+    background-color: white;
+    width: 90%;
+    border: black solid 1px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.grow { transition: all .2s ease-in-out; }
+.grow:hover { transform: scale(1.1); }
+
+.orderButton{
+    border-radius: 10px;
+    background-color: rgb(69, 143, 69);
+}
+
+[role=button]{cursor:pointer}
+
+

@@ -1,0 +1,28 @@
+
+<div class="loginContainer">
+
+    <form #loginFormNg="ngForm" [formGroup]="loginForm" (submit)="login()">
+
+        <mat-form-field>
+            <mat-label>User Name (email)</mat-label>
+            <input matInput type="email" maxlength="45" name="username" email="true" [formControl]="username"/>
+        </mat-form-field>
+        <span class="inputErrorMessage" *ngIf="username.errors?.required && username.touched">Please Fill In UserName (Email)</span>
+        <span class="inputErrorMessage" *ngIf="username.invalid && username.touched && username.dirty">Please Write A Valid Email</span>
+
+
+        <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input matInput type="text" maxlength="45" name="password" [formControl]="password"/>
+        </mat-form-field>
+        <span class="inputErrorMessage" *ngIf="password.errors?.required && password.touched">Please Fill In Password</span>
+
+        
+        <button mat-button class="submitButton" [disabled]="loginFormNg.form.invalid" (click) = "login()">Login</button>
+
+    </form>
+
+    <p>Dont have an account? <a routerLink="register" routerLinkActive="active">Register Here</a>
+    </p> 
+
+</div>

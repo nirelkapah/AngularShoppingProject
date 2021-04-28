@@ -1,0 +1,42 @@
+section {
+    font-family: 'Yusei Magic', sans-serif;
+    height: 100%;
+    background-color: white;
+    text-align: center;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr); /* 12 columns */
+    grid-template-rows: 106px auto 45px; /* 3 rows */
+    position: relative;
+
+    
+}
+
+section > * {
+    border: 1px solid gray;
+}
+
+header, footer {
+    grid-column: span 12;
+    min-width: 355px;
+
+}
+
+footer{
+    background-color: white;
+    background-image: url("../../../assets/images/header/woodBackground.jpg");
+    background-size: 100% 100%;  
+
+}
+
+/* aside {
+    grid-column: span 2;
+} */
+
+main {
+    grid-column: span 12;  
+    /* max-height: 1184px; */
+
+}
+
+

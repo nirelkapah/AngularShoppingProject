@@ -1,0 +1,124 @@
+<section>
+
+    <header>
+
+        <!-------Search Product------ -->
+        <div id="headerAside">
+            <mat-form-field>
+                <mat-label>Search Product:</mat-label>
+                <input matInput type="text" name="nameFilter" [(ngModel)]="searchKeyword"/>
+            </mat-form-field>
+            <span class="material-icons searchIcon">
+                search
+            </span>
+        </div>
+
+    </header>
+
+    <!-------Products List------ -->
+    <aside>
+
+        <button class="backToShopButton" (click)="this.onClickBackToShop()" mat-raised-button >
+            <span>Back To Shop </span>
+            <span type="button" class="material-icons" >
+                shopping_cart
+            </span>
+        </button>
+
+        <div class="menuRow" *ngFor="let cartProduct of cartsService.cart | ProductNamePipe: searchKeyword">
+            
+        <div>
+            <div innerHTML="{{ cartProduct.name | highlight : searchKeyword}}"></div>
+            <br>
+            <span>Quantity : {{cartProduct.amount}}</span>
+            <br>
+            <span>Total Price : {{cartProduct.totalPrice}}$</span>
+            <hr>
+        </div>
+
+        <img class="img" src="http://localhost:3001/{{cartProduct.imageURL}}">
+
+        <br>
+
+        </div>
+
+        <div id="orderSumContainer">
+
+            <h3>Final Price: {{this.cartsService.cartTotalPrice}}$</h3>
+
+        </div>
+    </aside>
+
+    <main>
+
+<!-- Order Form -->
+
+    <div class="orderContainer">
+
+
+        <form #orderFormNg="ngForm" [formGroup]="orderForm" (submit)="onClickOrder()">
+
+        <div class="title">
+            <h1>Shipping Details
+                <span class="material-icons symbols">
+                    local_shipping
+                </span>
+            </h1>
+            <h3>Double Click Input Field For Auto Complete</h3>
+        </div>
+        
+        <mat-form-field>
+            <mat-label>City:</mat-label>
+            <input matInput type="text" name="city" (dblclick)="onDoubleClickCity()" [formControl]="city" />
+        </mat-form-field>
+
+        <span class="inputErrorMessage" *ngIf="city.errors?.required && city.touched">Please Fill In City</span>
+
+        <mat-form-field>
+            <mat-label>Street:</mat-label>
+            <input matInput type="text" name="street" (dblclick)="onDoubleClickStreet()" [formControl]="street"/>
+        </mat-form-field>
+
+        <span class="inputErrorMessage" *ngIf="street.errors?.required && street.touched">Please Fill In Street</span>
+
+        <mat-form-field>
+            <mat-label>Shipping Date:</mat-label>
+            <input matInput (ngModelChange)="checkDate($event)" [matDatepicker]="myDatePicker" [min]="minDate" name="shippingDate" [formControl]="shippingDate" readonly/>
+            <mat-datepicker-toggle [for]="myDatePicker" matSuffix></mat-datepicker-toggle>
+            <mat-datepicker [dateClass]="dateClass()" #myDatePicker></mat-datepicker>
+        </mat-form-field>
+
+        <span class="inputErrorMessage" *ngIf="shippingDate.errors?.required && shippingDate.touched">Please Fill In Date</span>
+        <span class="inputErrorMessage" *ngIf="shippingDate.invalid && shippingDate.touched && shippingDate.dirty">Please Choose Another Date, All Deliveries Occupied On This Date</span>       
+
+        <div class="title">
+            <h1>Payment 
+            <span class="material-icons symbols">
+                payment
+            </span>
+        </h1>
+        </div>
+
+        <mat-form-field>
+            <mat-label>Credit Card:</mat-label>
+            <input matInput type="text" name="creditCard" minlength="12" maxlength="12" [formControl]="creditCard"/>
+
+        </mat-form-field>
+
+        <span class="inputErrorMessage" *ngIf="creditCard.errors?.required && creditCard.touched">Please Fill In Credit Card</span>
+        <span class="inputErrorMessage" *ngIf="creditCard.invalid && creditCard.touched && creditCard.dirty">Credit Card Number Must Be 12 Digits (Numbers) Only</span>       
+
+        <div>
+
+            <button mat-button class="submitButton" type="button" [disabled]="orderFormNg.form.invalid" (click)="onClickOrder()">Order</button>
+
+        </div>
+
+        </form>
+
+    </div>
+
+    </main>
+
+
+</section>

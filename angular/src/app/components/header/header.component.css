@@ -1,0 +1,42 @@
+
+section {
+    /* background-color: white; */
+    text-align: center;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr); /* 12 columns */
+    grid-template-rows: 100%  ; 
+    background-image: url("../../../assets/images/header/woodBackground.jpg");
+    background-size: 100% 100%;
+    font-family: 'Yusei Magic', sans-serif;
+}
+
+#logo{
+    height: 100px;
+    width: auto;
+    opacity: 1.2;
+
+}
+
+#logo:hover{
+    opacity: 0.5;
+}
+
+[role=button]{cursor:pointer}
+
+
+aside {
+    grid-column: span 2;
+}
+
+main {
+    grid-column: span 10; 
+
+}
+
+span{
+    float: right;
+    margin-right:50px;
+    position: relative;
+    top: 45px;
+}

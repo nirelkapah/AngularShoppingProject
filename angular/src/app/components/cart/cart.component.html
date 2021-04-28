@@ -1,0 +1,30 @@
+<div id="menu">
+
+    <!--=============== Products List ==============-->
+    <div class="menuRow" *ngFor="let cartProduct of cartsService.cart | NewToOldPipe">
+            
+            <span role="button" class="material-icons trash grow" (click)="onClickDeleteProductFromCart(cartProduct)">
+                delete_outline
+            </span> 
+        <div>
+            <h3>{{cartProduct.name}}</h3>
+            <br>
+            <span>Quantity : {{cartProduct.amount}}</span>
+            <br>
+            <span>Total Price : {{cartProduct.totalPrice}}$</span>
+        </div>
+
+        <img class="img" src="http://localhost:3001/{{cartProduct.imageURL}}">
+
+
+    </div>
+
+    <!--=============== List Sum ==============-->
+
+    <div id="orderSumContainer">
+
+        <h3>Final Price: {{this.cartsService.cartTotalPrice}}$</h3>
+        <button mat-raised-button role="button" class="btn btn-success orderButton grow"  (click)="onClickOrder()">Order</button>
+
+    </div>
+</div>

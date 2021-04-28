@@ -1,0 +1,94 @@
+
+<section>
+
+    <header>
+    </header>
+
+    <!-- =============LOGIN / REGISTER============= -->
+    <aside>
+        
+        <router-outlet></router-outlet>
+
+    </aside>
+
+    <!-- =============WHY US ?============= -->
+
+    <main>
+        <h1>WHY US?</h1>
+        <h3>Hover Qualities To Reveal</h3>
+
+        <div id="whyUs">
+
+            
+                <!-- 1 -->
+            <div (mouseover)="changeText1=true" (mouseout)="changeText1=false" >
+                <div *ngIf="!changeText1" class="whyUsTitles" id="whyUsTitle1"><p>Quality</p></div>
+                <div *ngIf="changeText1" class="whyUsInfo" ><h3>Quality</h3>We strive for excellence in all that we do. We set high personal and company standards, and then consistently try to exceed them.</div>
+            </div>
+
+
+            <!-- 2 -->
+            <div (mouseover)="changeText2=true" (mouseout)="changeText2=false">
+                <div *ngIf="!changeText2" class="whyUsTitles" id="whyUsTitle2"><p>Pricing</p></div>
+                <div *ngIf="changeText2" class="whyUsInfo"><h3>Pricing</h3>Our prices are the best in the market. found a better price? come to us and get a discount!</div>
+            </div>
+
+
+            <!-- 3 -->
+            <div (mouseover)="changeText3=true" (mouseout)="changeText3=false">
+                <div *ngIf="!changeText3" class="whyUsTitles" id="whyUsTitle3"><p>Flexibility</p></div>
+                <div *ngIf="changeText3" class="whyUsInfo"><h3>Flexibility</h3>We believe that flexibility leads to excellence and we tailor all our services to the specific needs of each client.</div>
+            </div>
+
+
+            <!-- 4 -->
+
+            <div (mouseover)="changeText4=true" (mouseout)="changeText4=false">
+                <div *ngIf="!changeText4" class="whyUsTitles" id="whyUsTitle4"><p>Passion</p></div>
+                <div *ngIf="changeText4" class="whyUsInfo"><h3>Passion</h3>We are passionate and committed in heart and mind to what we do. Our employees work around the clock coming up with ideas and new products.</div>
+            </div>
+
+
+            <!-- 5 -->
+            <div (mouseover)="changeText5=true" (mouseout)="changeText5=false">
+                <div *ngIf="!changeText5" class="whyUsTitles" id="whyUsTitle5"><p>Integrity</p></div>
+                <div *ngIf="changeText5" class="whyUsInfo"><h3>Integrity</h3> When we face a tough decision we never compromise our values and principles. We do what is right, not what is the easiest.</div>
+            </div>
+
+            <!-- 6 -->
+            <div (mouseover)="changeText6=true" (mouseout)="changeText6=false">
+                <div *ngIf="!changeText6" class="whyUsTitles" id="whyUsTitle6"><p>Teamwork</p></div>
+                <div *ngIf="changeText6" class="whyUsInfo"><h3>Teamwork</h3>Our power comes from the talented people within our company. </div>
+            </div>
+
+        </div>
+
+
+    </main>
+    
+    <!-- =============FOOTER============= -->
+
+    <footer id="footer1">
+
+        <h1>
+            <i class="material-icons">assignment_turned_in</i>
+            Amount Of Reservations Made: 
+            <span>{{this.amountOfReservationsMade}}</span>
+        </h1>
+
+        <h1>
+            <i class="material-icons">production_quantity_limits</i>
+            Amount Of Products Available For You: 
+            <span>{{this.amountOfProductsAvailable}}</span>
+        </h1>
+
+
+    </footer>
+
+    <footer id="footer2"></footer>
+
+    <footer id="footer3"></footer>
+    
+
+</section>
+

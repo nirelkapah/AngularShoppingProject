@@ -1,0 +1,24 @@
+<h1 mat-dialog-title>{{data.name}}</h1>
+<!-- <img className="vacationImg" src={vacation.imageURL.includes("http") ? vacation.imageURL : "http://34.65.41.207:3001/" + vacation.imageURL} alt={vacation.imageURL}/> -->
+<img class="img-responsive" src="http://localhost:3001/{{data.imageURL}}">
+
+<form #dialogForm="ngForm">
+
+  <div mat-dialog-content>
+    <mat-form-field>
+      <mat-label>Choose Amount:</mat-label>
+      <input #amountInput="ngModel" name="amount" required type="number" min="0" matInput [(ngModel)]="data.amount" pattern="^[1-9]\d*$">
+    </mat-form-field>
+  </div>
+
+  <span *ngIf="amountInput.errors?.pattern">Amount Must Be 1 Or More <span class="material-icons smile">
+    insert_emoticon
+    </span></span><br>
+
+  <div mat-dialog-actions>
+    <button mat-button type="button" (click)="onNoClick()">No Thanks</button>
+    <button mat-button type="submit" class="glow-on-hover" [disabled]="dialogForm.form.invalid" [mat-dialog-close]="data.amount">Add To Cart!</button>
+
+  </div>
+
+</form>

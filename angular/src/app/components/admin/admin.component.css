@@ -1,0 +1,269 @@
+/* Main */
+
+
+section {
+    font-family: 'Yusei Magic', sans-serif;
+    height: 100%;
+    background-color: lightgray;
+    text-align: center;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr); /* 12 columns */
+    grid-template-rows: 106px auto; /* 3 rows */
+}
+
+section > * {
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+
+
+/* =================HEADER==================== */
+
+
+header {
+    grid-column: span 12;
+    justify-content: bottom;
+    /* background-color: white; */
+    text-align: center;
+    box-sizing: border-box;
+    /* display: grid; */
+    grid-template-columns: repeat(12, 1fr); /* 12 columns */
+    grid-template-rows: 100%  ; 
+    background-color: rgb(243, 243, 243);
+    display: flex;
+    
+}
+
+#headerAside {
+    grid-column: span 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 300px;
+
+    margin: 10px;
+    margin-left: 0px;
+    border-width: 2px;
+    border-color: transparent;
+    border-style: solid;
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .8);   
+    border-radius: 5px;
+    position: relative;
+    z-index: 1;
+    background: inherit;
+    overflow: hidden;
+    backdrop-filter: blur(5px);
+}
+
+#headerMain {
+    grid-column: span 10; 
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 100%;
+
+    margin: 10px;
+    margin-left: 0px;
+
+    border-width: 2px;
+    border-color: transparent;
+    border-style: solid;
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .8);   
+    border-radius: 5px;
+    position: relative;
+    z-index: 1;
+    background: inherit;
+    overflow: hidden;
+    backdrop-filter: blur(5px);
+
+}
+
+#headerSideBarButtonDiv{
+    color: green;
+
+    
+}
+
+
+
+/* =================MENU==================== */
+
+aside {
+    grid-column: span 0;
+} 
+
+.cartCloseButton{
+    margin: 8px
+}
+
+  
+.sidenav-content {
+display: flex;
+height: 100%;
+align-items: center;
+justify-content: center;
+
+}
+  
+.sidenav {
+padding: 10px;
+width: 350px;
+}
+
+.emptyCartText{
+    margin-top: 20px;
+}
+
+.emptyCartSubText{
+    margin-top: 10px;
+    font-weight: lighter;
+}
+
+.addCartSymbol{
+    font-size: 80px;
+}
+
+.productManager{
+    width: 100%;
+}
+
+
+/* =================MAIN PRODUCTS PAGE==================== */
+
+main {
+    grid-column: span 12;   
+    overflow-y: scroll;
+    display: flex;
+
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+}
+
+
+.mainDiv{
+    width: 100% ;
+    display: inline-flex;
+    flex-wrap: wrap;
+
+}
+
+.cardDiv{
+
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: auto;
+    background-color: white;
+    border-radius: 10px;
+    margin: 10px;
+    justify-content: center;
+}
+
+.cardImg{
+    width: 80%;
+    align-self: center;
+}
+
+.categoryCard{
+    width: auto;
+    height: auto;
+    background-color: white;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.grow { transition: all .2s ease-in-out; }
+.grow:hover { transform: scale(1.1); }
+
+
+[role=button]{cursor:pointer}
+
+
+
+/* =================Responsive Definitions==================== */
+
+@media only screen and (min-width: 630px) and (max-width: 1150px)  {
+
+    header {
+        display: flex;
+        flex-direction: column;
+        /* height: 300px; */
+    }
+
+    #headerMain{
+        flex-wrap: wrap;
+    }
+
+    .cardDiv{
+        width: 200px;
+    }
+
+    .sidenav {
+        padding: 10px;
+        width: 250px;
+        }
+
+    section{
+        display: flex;
+        flex-direction: column;
+    }
+
+    main{
+        height: 100%;
+    }
+   
+    }
+
+    @media only screen and (min-width: 0px) and (max-width: 630px)  {
+
+        header {
+            display: flex;
+            flex-direction: column;
+            min-width: 355px;
+            /* height: 300px; */
+        }
+
+        #headerMain{
+            flex-wrap: wrap;
+        }
+
+        .categoryCard{
+            font-size: 12px;
+        }
+
+        .cardDiv{
+            width: 110px;
+        }
+
+        .sidenav {
+            padding: 10px;
+            width: 150px;
+            }
+    
+    
+        section{
+            display: flex;
+            flex-direction: column;
+            min-width: 355px;
+
+        }
+       
+        }

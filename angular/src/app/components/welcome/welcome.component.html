@@ -1,0 +1,39 @@
+
+<!-- First Buy -->
+<div *ngIf="isFirstBuy && pageLoaded" class="container">
+
+    <h1>Hello And Welcome To Your First Buy!</h1>
+    <h3>We Wish You'll Have A Wonderful Time With Us</h3>
+
+    <button mat-raised-button type="button" (click)="this.onClickToShop()" >Take Me To Shop</button>
+    <img class="img-responsive image" src="../../../assets/images/welcome/smile.png">
+
+
+
+</div>
+
+<!-- Open Cart -->
+<div *ngIf="isActiveCart && pageLoaded" class="container">
+
+
+    <h1>Good To See You {{this.userService.firstName}}</h1>
+    <h3>You Have An Open Cart Since The {{this.activeCart.creationDate}}</h3>
+    <h3>At A Total Value Of {{this.activeCart.totalPrice}}$</h3>
+
+    <button mat-raised-button type="button" (click)="this.onClickToShop()" >Continue Shopping!</button>
+    <img class="img-responsive image" src="../../../assets/images/welcome/smile.png">
+
+</div>
+
+<!-- Last Cart -->
+<div *ngIf="isActiveCart == false && isFirstBuy == false && pageLoaded" class="container">
+
+    <h1>Good To See You {{this.userService.firstName}}</h1>
+    <h3>We Are Always Happy To See You Again</h3>
+    <h3>Your Last Purchase Here Was At The {{this.lastCart.creationDate}}</h3>
+    <h3>At A Total Value Of {{this.lastCart.totalPrice}}$</h3>
+
+    <button mat-raised-button type="button" (click)="this.onClickToShop()" >Start Shopping</button>
+    <img class="img-responsive image" src="../../../assets/images/welcome/smile.png">
+
+</div>

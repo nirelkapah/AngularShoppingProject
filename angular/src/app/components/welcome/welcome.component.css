@@ -1,0 +1,17 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Yusei Magic', sans-serif;
+
+}
+
+.image{
+    width: 300px;
+}
+
+
+h1, h3, button{
+    font-family: 'Yusei Magic', sans-serif;
+}
